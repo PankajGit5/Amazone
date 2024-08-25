@@ -1,4 +1,5 @@
-export const cart = [{
+// import{cart} from '../data/cart.js';
+export let cart = [{
   productId: 'e43638ce-6aa0-4b85-b27f-e1d07eb678c6',
   quantity : 2
 },
@@ -28,3 +29,15 @@ export function addTocart(cartquant){
         });
     }
   }
+
+
+  export function removefromCart(productId) {
+    // Filter out the product that matches the given productId
+    const updatedCart = cart.filter(cartItem => cartItem.productId !== productId);
+
+    // Clear the existing cart array and push the updated items
+    cart.length = 0; 
+    cart.push(...updatedCart); 
+
+    // console.log('Updated Cart:', cart); 
+}
